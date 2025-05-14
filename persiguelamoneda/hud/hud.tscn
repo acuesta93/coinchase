@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5cj5g6plpvsy"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_r4crl"]
+[ext_resource type="LabelSettings" uid="uid://dm8eh7l5s1t4y" path="res://HUD_LABEL.tres" id="2_xh1lo"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_r4crl")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 485.0
+offset_bottom = 725.0
+
+[node name="NivelLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 63.0
+offset_bottom = 54.0
+text = "0"
+label_settings = ExtResource("2_xh1lo")
+
+[node name="TiempoLabel2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 10.0
+offset_right = 475.0
+offset_bottom = 54.0
+text = "0"
+label_settings = ExtResource("2_xh1lo")
+
+[node name="InicioLabel3" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 291.0
+offset_right = 479.0
+offset_bottom = 362.0
+text = "PERSIGUE LA MONEDA"
+label_settings = ExtResource("2_xh1lo")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 147.0
+offset_top = 333.0
+offset_right = 317.0
+offset_bottom = 360.0
+text = "START"
+
+[node name="MensajeTimer" type="Timer" parent="."]
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="MensajeTimer" to="." method="_on_mensaje_timer_timeout"]
